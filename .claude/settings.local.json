@@ -1,0 +1,74 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:developers.openai.com)",
+      "WebFetch(domain:github.com)"
+    ],
+    "deny": [
+      "Read(*/.env)",
+      "Read(service-account-key.json)",
+      "Read(.github/)",
+      "Read(.idea/)",
+      "Read(.vscode/)",
+      "Read(.DS_Store)",
+      "Read(node_modules/)",
+      "Read(frontend/node_modules/)",
+      "Read(package-lock.json)",
+      "Read(yarn.lock)",
+      "Read(.next/)",
+      "Read(.turbo/)",
+      "Read(dist/)",
+      "Read(frontend/dist/)",
+      "Read(build/)",
+      "Read(out/)",
+      "Read(__pycache__/)",
+      "Read(venv/)",
+      "Read(env/)",
+      "Read(*.pyc)",
+      "Read(.pytest_cache/)",
+      "Read(.mypy_cache/)",
+      "Read(.tox/)",
+      "Read(*.egg-info/)",
+      "Read(.coverage)",
+      "Read(target/)",
+      "Read(bin/)",
+      "Read(.gradle/)",
+      "Read(*.class)",
+      "Read(*.jar)",
+      "Read(*.war)",
+      "Read(*.ear)",
+      "Read(.cxx/)",
+      "Read(.externalNativeBuild/)",
+      "Read(*.apk)",
+      "Read(*.aab)",
+      "Read(DerivedData/)",
+      "Read(Pods/)",
+      "Read(Carthage/)",
+      "Read(*.ipa)",
+      "Read(.dart_tool/)",
+      "Read(android/app/build/)",
+      "Read(ios/Pods/)",
+      "Read(ios/build/)",
+      "Read(.serverless)",
+      "Read(.terraform.lock.hcl)",
+      "Read(.terraform/)",
+      "Read(coverage/)",
+      "Read(*.csv)",
+      "Read(*.log)"
+    ],
+    "ask": []
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ~/.claude/scripts/validate-bash.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
